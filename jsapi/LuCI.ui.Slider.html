@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Class: baseclass</title>
+    <title>Class: Slider</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -3827,7 +3827,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="LuCI.baseclass.html">Class: baseclass</h1>
+        <h1 class="page-title" data-filename="LuCI.ui.Slider.html">Class: Slider</h1>
         
 
 
@@ -3836,14 +3836,20 @@
     
 <header>
     <h2>
-        <span class="ancestors"><a href="LuCI.html">LuCI</a>.</span>
+        <span class="ancestors"><a href="LuCI.html">LuCI</a><a href="LuCI.ui.html">.ui</a>.</span>
     
-    baseclass
+    Slider
     </h2>
     
-        <div class="class-description"><p><code>LuCI.baseclass</code> is the abstract base class all LuCI classes inherit from.</p>
-<p>It provides simple means to create subclasses of given classes and
-implements prototypal inheritance.</p></div>
+        <div class="class-description"><p>The <code>RangeSlider</code> class implements a widget which allows the user to set a
+value from a predefined range.</p>
+<p>UI widget instances are usually not supposed to be created by view code
+directly. Instead they're implicitly created by <code>LuCI.form</code> when
+instantiating CBI forms.</p>
+<p>This class is automatically instantiated as part of <code>LuCI.ui</code>. To use it
+in views, use <code>'require ui'</code> and refer to <code>ui.Slider</code>. To import it in
+external JavaScript, use <code>L.require(&quot;ui&quot;).then(...)</code> and access the
+<code>Slider</code> property of the class instance value.</p></div>
     
 </header>  
 
@@ -3855,14 +3861,14 @@ implements prototypal inheritance.</p></div>
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="baseclass">
+        <h4 class="name" id="Slider">
             
-            new LuCI.baseclass<span class="signature">()</span>
+            new LuCI.ui.Slider<span class="signature">(<span class="optional">value</span>)</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="luci.js.html">luci.js</a>, <a href="luci.js.html#line23">line 23</a>
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line2646">line 2646</a>
         </div>
         
     </div>
@@ -3872,11 +3878,78 @@ implements prototypal inheritance.</p></div>
 <dd>
     
     
+    <div class="description">
+        <p>Instantiate a range slider widget.</p>
+    </div>
+    
 
     
     
     
     
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+            
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>...</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -3921,6 +3994,12 @@ implements prototypal inheritance.</p></div>
     
     </div>
     
+    
+        <h3 class="subsection-title">Extends</h3>
+        
+        <ul>
+            <li><a href="LuCI.ui.AbstractElement.html">LuCI.ui.AbstractElement</a></li>
+        </ul>
     
     
     
@@ -3939,15 +4018,17 @@ implements prototypal inheritance.</p></div>
         <dl>
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id=".extend">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="getValidationError">
             
-            <span class="type-signature static">static</span>LuCI.baseclass.extend<span class="signature">(properties)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="LuCI.baseclass.html">LuCI.baseclass</a>}</span>
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#getValidationError">inherited</a></span>
+            
+            getValidationError<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{string}</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="luci.js.html">luci.js</a>, <a href="luci.js.html#line55">line 55</a>
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line166">line 166</a>
         </div>
         
     </div>
@@ -3958,8 +4039,7 @@ implements prototypal inheritance.</p></div>
     
     
     <div class="description">
-        <p>Extends this base class with the properties described in
-<code>properties</code> and returns a new subclassed Class instance</p>
+        <p>Returns the current validation error</p>
     </div>
     
 
@@ -3967,52 +4047,6 @@ implements prototypal inheritance.</p></div>
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>properties</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object.&lt;string, *></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>An object describing the properties to add to the new
-subclass.</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -4068,14 +4102,11 @@ subclass.</p></td>
             
             <td class="type">
             
-                        <a href="LuCI.baseclass.html">LuCI.baseclass</a>
+                        string
                         
                     
             </td>
-            <td class="description last">Returns a new LuCI.baseclass subclassed from this class, extended
-by the given properties and with its prototype set to this base
-class to enable inheritance. The resulting value represents a
-class constructor and can be instantiated with <code>new</code>.</td>
+            <td class="description last">The validation error at this time</td>
         </tr>
     
     </tbody>
@@ -4089,15 +4120,17 @@ class constructor and can be instantiated with <code>new</code>.</td>
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id=".instantiate">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="getValue">
             
-            <span class="type-signature static">static</span>LuCI.baseclass.instantiate<span class="signature">(params)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="LuCI.baseclass.html">LuCI.baseclass</a>}</span>
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#getValue">inherited</a></span>
+            
+            getValue<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{string|Array.&lt;string>|null}</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="luci.js.html">luci.js</a>, <a href="luci.js.html#line133">line 133</a>
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line81">line 81</a>
         </div>
         
     </div>
@@ -4108,8 +4141,7 @@ class constructor and can be instantiated with <code>new</code>.</td>
     
     
     <div class="description">
-        <p>Calls the class constructor using <code>new</code> with the given argument
-array being passed as variadic parameters to the constructor.</p>
+        <p>Read the current value of the input widget.</p>
     </div>
     
 
@@ -4117,52 +4149,6 @@ array being passed as variadic parameters to the constructor.</p>
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;*></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>An array of arbitrary values which will be passed as arguments
-to the constructor function.</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -4218,13 +4204,20 @@ to the constructor function.</p></td>
             
             <td class="type">
             
-                        <a href="LuCI.baseclass.html">LuCI.baseclass</a>
+                        string
+                         | 
+                    
+                        Array.&lt;string>
+                         | 
+                    
+                        null
                         
                     
             </td>
-            <td class="description last">Returns a new LuCI.baseclass instance extended by the given
-properties with its prototype set to this base class to
-enable inheritance.</td>
+            <td class="description last">The current value of the input element. For simple inputs like text
+fields or selects, the return value type will be a - possibly empty -
+string. Complex widgets such as <code>DynamicList</code> instances may result in
+an array of strings or <code>null</code> for unset values.</td>
         </tr>
     
     </tbody>
@@ -4238,15 +4231,17 @@ enable inheritance.</td>
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id=".isSubclass">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="isChanged">
             
-            <span class="type-signature static">static</span>LuCI.baseclass.isSubclass<span class="signature">(classValue)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#isChanged">inherited</a></span>
+            
+            isChanged<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="luci.js.html">luci.js</a>, <a href="luci.js.html#line158">line 158</a>
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line141">line 141</a>
         </div>
         
     </div>
@@ -4257,7 +4252,7 @@ enable inheritance.</td>
     
     
     <div class="description">
-        <p>Checks whether the given class value is a subclass of this class.</p>
+        <p>Check whether the input value was altered by the user.</p>
     </div>
     
 
@@ -4265,51 +4260,6 @@ enable inheritance.</td>
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>classValue</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="LuCI.baseclass.html">LuCI.baseclass</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                <p>The class object to test.</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -4369,9 +4319,10 @@ enable inheritance.</td>
                         
                     
             </td>
-            <td class="description last">Returns <code>true</code> when the given <code>classValue</code> is a subclass of this
-class or <code>false</code> if the given value is not a valid class or not
-a subclass of this class'.</td>
+            <td class="description last">Returns <code>true</code> if the input value has been altered by the user or
+<code>false</code> if it is unchanged. Note that if the user modifies the initial
+value and changes it back to the original state, it is still reported
+as changed.</td>
         </tr>
     
     </tbody>
@@ -4385,15 +4336,17 @@ a subclass of this class'.</td>
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id=".singleton">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="isValid">
             
-            <span class="type-signature static">static</span>LuCI.baseclass.singleton<span class="signature">(properties, <span class="optional">new_args</span>)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="LuCI.baseclass.html">LuCI.baseclass</a>}</span>
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#isValid">inherited</a></span>
+            
+            isValid<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="luci.js.html">luci.js</a>, <a href="luci.js.html#line114">line 114</a>
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line154">line 154</a>
         </div>
         
     </div>
@@ -4404,13 +4357,7 @@ a subclass of this class'.</td>
     
     
     <div class="description">
-        <p>Extends this base class with the properties described in
-<code>properties</code>, instantiates the resulting subclass using
-the additional optional arguments passed to this function
-and returns the resulting subclassed Class instance.</p>
-<p>This function serves as a convenience shortcut for
-<a href="LuCI.baseclass.html#.extend"><code>Class.extend()</code></a> and subsequent
-<code>new</code>.</p>
+        <p>Check whether the current input value is valid.</p>
     </div>
     
 
@@ -4418,90 +4365,6 @@ and returns the resulting subclassed Class instance.</p>
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>properties</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object.&lt;string, *></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                <p>An object describing the properties to add to the new
-subclass.</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>new_args</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                        <span class="repeatable">repeatable</span>
-                    
-                
-                <p>Specifies arguments to be passed to the subclass constructor
-as-is in order to instantiate the new subclass.</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -4557,13 +4420,12 @@ as-is in order to instantiate the new subclass.</p></td>
             
             <td class="type">
             
-                        <a href="LuCI.baseclass.html">LuCI.baseclass</a>
+                        boolean
                         
                     
             </td>
-            <td class="description last">Returns a new LuCI.baseclass instance extended by the given
-properties with its prototype set to this base class to
-enable inheritance.</td>
+            <td class="description last">Returns <code>true</code> if the current input value is valid or <code>false</code> if it does
+not meet the validation constraints.</td>
         </tr>
     
     </tbody>
@@ -4577,15 +4439,17 @@ enable inheritance.</td>
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id="super">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="registerEvents">
             
-            super<span class="signature">(key, <span class="optional">callArgs</span>)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{*|null}</span>
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#registerEvents">inherited</a></span>
+            
+            registerEvents<span class="signature">(targetNode, synevent, events)</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="luci.js.html">luci.js</a>, <a href="luci.js.html#line227">line 227</a>
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line215">line 215</a>
         </div>
         
     </div>
@@ -4596,21 +4460,14 @@ enable inheritance.</td>
     
     
     <div class="description">
-        <p>Walks up the parent class chain and looks for a class member
-called <code>key</code> in any of the parent classes this class inherits
-from. Returns the member value of the superclass or calls the
-member as function and returns its return value when the
-optional <code>callArgs</code> array is given.</p>
-<p>This function has two signatures and is sensitive to the
-amount of arguments passed to it:</p>
-<ul>
-<li><code>super('key')</code> -
-Returns the value of <code>key</code> when found within one of the
-parent classes.</li>
-<li><code>super('key', ['arg1', 'arg2'])</code> -
-Calls the <code>key()</code> method with parameters <code>arg1</code> and <code>arg2</code>
-when found within one of the parent classes.</li>
-</ul>
+        <p>Dispatch a custom (synthetic) event in response to received events.</p>
+<p>Sets up event handlers on the given target DOM node for the given event
+names that dispatch a custom event of the given type to the widget root
+DOM node.</p>
+<p>The primary purpose of this function is to set up a series of custom
+uniform standard events such as <code>widget-update</code>, <code>validation-success</code>,
+<code>validation-failure</code> etc. which are triggered by various different
+widget specific native DOM events.</p>
     </div>
     
 
@@ -4641,7 +4498,309 @@ when found within one of the parent classes.</li>
 	
         <tr>
             
-                <td class="name"><code>key</code></td>
+                <td class="name"><code>targetNode</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Node</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Specifies the DOM node on which the native event listeners should be
+registered.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>synevent</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The name of the custom event to dispatch to the widget root DOM node.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>events</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The native DOM events for which event handlers should be registered.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="render">
+            
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#render">inherited</a></span>
+            
+            render<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{Node}</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line303">line 303</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Render the widget, set up event listeners and return resulting markup.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        Node
+                        
+                    
+            </td>
+            <td class="description last">Returns a DOM Node or DocumentFragment containing the rendered
+widget markup.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="setChangeEvents">
+            
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#setChangeEvents">inherited</a></span>
+            
+            setChangeEvents<span class="signature">(targetNode, events)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line284">line 284</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Set up listeners for native DOM events that may change the widget value.</p>
+<p>Sets up event handlers on the given target DOM node for the given event
+names which may cause the input value to change completely, such as
+<code>change</code> events in a select menu. In contrast to update events, such
+change events will not trigger input value validation but they may cause
+field dependencies to get re-evaluated and will mark the input widget
+as dirty.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>targetNode</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Node</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                
+                <p>Specifies the DOM node on which the event listeners should be registered.</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>events</code></td>
             
             
             <td class="type">
@@ -4661,40 +4820,10 @@ when found within one of the parent classes.</li>
                     
                         
                     
-                
-                <p>The name of the superclass member to retrieve.</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>callArgs</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;*></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
+                        <span class="repeatable">repeatable</span>
                     
                 
-                <p>An optional array of function call parameters to use. When
-this parameter is specified, the found member value is called
-as function using the values of this array as arguments.</p></td>
+                <p>The DOM events for which event handlers should be registered.</p></td>
         </tr>
 	
 	
@@ -4735,70 +4864,7 @@ as function using the values of this array as arguments.</p></td>
     
     
     
-    <h5>Throws:</h5>
     
-            
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        <p>Throws a <code>ReferenceError</code> when <code>callArgs</code> are specified and
-the found member named by <code>key</code> is not a function value.</p>
-        </div>
-    </dt>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">ReferenceError</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-</dl>
-
-
-        
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        *
-                         | 
-                    
-                        null
-                        
-                    
-            </td>
-            <td class="description last">Returns the value of the found member or the return value of
-the call to the found method. Returns <code>null</code> when no member
-was found in the parent class chain or when the call to the
-superclass method returned <code>null</code>.</td>
-        </tr>
-    
-    </tbody>
-</table>
-
     
     
     
@@ -4807,15 +4873,17 @@ superclass method returned <code>null</code>.</td>
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id="varargs">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="setPlaceholder">
             
-            varargs<span class="signature">(args, offset, <span class="optional">extra_args</span>)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{Array.&lt;*>}</span>
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#setPlaceholder">inherited</a></span>
+            
+            setPlaceholder<span class="signature">(value)</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="luci.js.html">luci.js</a>, <a href="luci.js.html#line186">line 186</a>
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line113">line 113</a>
         </div>
         
     </div>
@@ -4826,9 +4894,7 @@ superclass method returned <code>null</code>.</td>
     
     
     <div class="description">
-        <p>Extract all values from the given argument array beginning from
-<code>offset</code> and prepend any further given optional parameters to
-the beginning of the resulting array copy.</p>
+        <p>Set the current placeholder value of the input widget.</p>
     </div>
     
 
@@ -4859,13 +4925,19 @@ the beginning of the resulting array copy.</p>
 	
         <tr>
             
-                <td class="name"><code>args</code></td>
+                <td class="name"><code>value</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;*></span>
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Array.&lt;string></span>
+|
+
+<span class="param-type">null</span>
 
 
             
@@ -4875,73 +4947,8 @@ the beginning of the resulting array copy.</p>
             
             <td class="description last">
                 
-                    
-                    
-                        
-                    
-                
-                <p>The array to extract the values from.</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>offset</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                <p>The offset from which to extract the values. An offset of <code>0</code>
-would copy all values till the end.</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>extra_args</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                        <span class="repeatable">repeatable</span>
-                    
-                
-                <p>Extra arguments to add to prepend to the resulting array.</p></td>
+                <p>The placeholder to set for the input element. Only applicable to text
+inputs, not to radio buttons, selects or similar.</p></td>
         </tr>
 	
 	
@@ -4984,36 +4991,365 @@ would copy all values till the end.</p></td>
     
     
     
-    <h5>Returns:</h5>
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="setUpdateEvents">
+            
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#setUpdateEvents">inherited</a></span>
+            
+            setUpdateEvents<span class="signature">(targetNode, events)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line240">line 240</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Set up listeners for native DOM events that may update the widget value.</p>
+<p>Sets up event handlers on the given target DOM node for the given event
+names which may cause the input value to update, such as <code>keyup</code> or
+<code>onclick</code> events. In contrast to change events, such update events will
+trigger input value validation.</p>
+    </div>
     
 
+    
+    
+    
+    
+    
+        
 
 <table class="params">
     <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
         <tr>
+            
+                <td class="name"><code>targetNode</code></td>
+            
             
             <td class="type">
             
-                        Array.&lt;*>
+                
+<span class="param-type">Node</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
                         
                     
-            </td>
-            <td class="description last">Returns a new array consisting of the optional extra arguments
-and the values extracted from the <code>args</code> array beginning with
-<code>offset</code>.</td>
+                
+                <p>Specifies the DOM node on which the event listeners should be registered.</p></td>
         </tr>
-    
-    </tbody>
-</table>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>events</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
 
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                    
+                        
+                    
+                        <span class="repeatable">repeatable</span>
+                    
+                
+                <p>The DOM events for which event handlers should be registered.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="setValue">
+            
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#setValue">inherited</a></span>
+            
+            setValue<span class="signature">(value)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line99">line 99</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Set the current value of the input widget.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Array.&lt;string></span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>The value to set the input element to. For simple inputs like text
+fields or selects, the value should be a - possibly empty - string.
+Complex widgets such as <code>DynamicList</code> instances may accept string array
+or <code>null</code> values.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="triggerValidation">
+            
+                <span class="inherited"><a href="LuCI.ui.AbstractElement.html#triggerValidation">inherited</a></span>
+            
+            triggerValidation<span class="signature">()</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="ui.js.html">ui.js</a>, <a href="ui.js.html#line180">line 180</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Force validation of the current input value.</p>
+<p>Usually input validation is automatically triggered by various DOM events
+bound to the input widget. In some cases it is required though to manually
+trigger validation runs, e.g. when programmatically altering values.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
     
     
     
@@ -5038,7 +5374,7 @@ and the values extracted from the <code>args</code> array beginning with
         
 
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Wed Jun 25 2025 18:43:01 GMT+0000 (Coordinated Universal Time)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Wed Jun 25 2025 18:43:02 GMT+0000 (Coordinated Universal Time)
         </footer>
     </div>
 </div>
